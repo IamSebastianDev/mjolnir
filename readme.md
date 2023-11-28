@@ -6,7 +6,7 @@ Compiler for ValhallaScript. A completely ridiculous, unnecessary attempt at cre
 
 ## Introduction
 
-Valhalla Script Parser is a command-line tool for parsing Valhalla script files (.vh) and converting them into JavaScript files (.js). Valhalla script is an esoteric programming language inspired by Norse mythology, and this parser aims to make it easier to work with Valhalla script code.
+Mjolnir is a command-line tool for parsing ValhallaScript files (.vh) and converting them into JavaScript files (.js). ValhallaScript is an esoteric programming language inspired by Norse mythology, and this parser aims to make it easier to work with Valhalla script code.
 
 ## Prerequisites
 
@@ -53,6 +53,15 @@ npm mjolnir --file=index.vh --output=./build
 ```
 
 In this example, `index.vh` will be parsed, and the resulting JavaScript code will be saved in the `./build` directory. If the `--defer` option is not used, the JavaScript code will also be executed.
+
+### Hello World
+
+Here is a `Hello World` implementation.
+
+```vh
+carve rune navn -) `Fynn`;
+myrkur<`Hej ` + navn>; // logs `Hej Fynn`
+```
 
 ## Valhalla Script Language
 
