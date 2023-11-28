@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /** @format */
 
 import { log, parser } from './lib';

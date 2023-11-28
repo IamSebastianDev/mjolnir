@@ -1,12 +1,12 @@
 {
     "type": "module",
-    "main": "dist/index.js",
+    "main": "dist/index.cjs",
     "module": "dist/index.mjs",
     "bin": {
-        "mjolnir": "dist/index.js"
+        "mjolnir": "dist/index.cjs"
     },
     "exports": {
-        "require": "./dist/index.js",
+        "require": "./dist/index.cjs",
         "import": "./dist/index.mjs",
         "types": "./dist/types/index.d.ts"
     },
