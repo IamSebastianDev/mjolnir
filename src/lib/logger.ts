@@ -1,19 +1,26 @@
 /** @format */
 import chalk from 'chalk';
 
-export const log = (quiet: boolean, enableDebug: boolean) => {
-    const info = (...message: any[]) => {
+export const log = (quiet: boolean, debugEnabled: boolean) => {
+    const info = (message: string, ...data: any[]) => {
         if (quiet) return;
-        console.log(chalk.green(`[Mjølnir:info]:: `, ...message));
+        console.log(chalk.green(`[Mjølnir:info]:: `, message));
+        if (data && data.length > 0) {
+            console.log(...data);
+        }
     };
 
     const debug = (...message: any[]) => {
-        if (!enableDebug || quiet) return;
+        if (!debugEnabled || quiet) return;
         console.log(chalk.yellow(`[Mjølnir:debug]:: `, ...message));
     };
 
     const error = (...message: any[]) => {
-        throw new Error(`[Mjølnir:error]:: ${message}`, { cause: 'Compiler' });
+        console.log(chalk.white.bgRed(`[Mjølnir:debug]:: `, ...message));
+        if (debugEnabled) {
+            throw new Error(`[Mjølnir:error]:: ${message}`, { cause: 'Compiler' });
+        }
+        process.exit(1);
     };
 
     return {

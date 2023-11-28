@@ -1,13 +1,10 @@
 #!/usr/bin/env node
 /** @format */
 
-import { log, parser } from './lib';
+import { log, parser, writeOutput, processResult, getMetaData } from './lib';
 import { CMDArgs } from './types';
-import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { root } from './utils/root.util';
-import { resolve } from 'node:path';
-import { spawn, spawnSync } from 'node:child_process';
 
 // Get and parse the command line parameters
 const [, , ...argv] = process.argv;
@@ -53,29 +50,20 @@ const args: CMDArgs = Object.fromEntries([
     // If defer is true and output is false, no action should be taken
     if (defer && !output) return;
     // If output is true, the file should be created and placed in the output specified
-    if (output) {
-        if (existsSync(root(output))) {
-            await writeFile(resolve(root(output), file.replace('vh', 'js')), parsed, 'utf-8');
-        } else {
-            await mkdir(root(output), { recursive: true });
-            await writeFile(resolve(root(output), file.replace('vh', 'js')), parsed, 'utf-8');
-        }
+    try {
+        await writeOutput(file, parsed, output);
+    } catch (e) {
+        error(`Could not write output: ${e}`);
     }
     // if defer is false and temp is provided, a temp file is created and executed, and then deleted
-    if (!defer && temp) {
-        if (existsSync(root(temp))) {
-            await writeFile(resolve(root(temp), file.replace('vh', 'js')), parsed, 'utf-8');
-        } else {
-            await mkdir(root(temp), { recursive: true });
-            await writeFile(resolve(root(temp), file.replace('vh', 'js')), parsed, 'utf-8');
-        }
-
-        const child = spawnSync('node', [resolve(root(temp), file.replace('vh', 'js'))], { encoding: 'utf-8' });
-        console.log(`\n-------------------------\n`);
-        if (child.stderr) {
-            error(child.stderr);
-        }
-        console.log(`${child.stdout}`);
-        rm(root(temp), { recursive: true, force: true });
+    try {
+        const result = await processResult(temp, parsed, defer);
+        console.log(result);
+    } catch (e) {
+        error(`Could not process result: ${e}`);
     }
+
+    // Write Compile Meta Data
+    const metaData = await getMetaData(file);
+    info('Compiler meta-data: ', { metaData });
 })(args);

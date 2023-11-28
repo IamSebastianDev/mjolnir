@@ -68,16 +68,12 @@ myrkur<`Hej ` + navn>; // logs `Hej Fynn`
 Valhalla script is a unique esoteric programming language. It includes the following key features:
 
 -   `<` and `>`: Represent opening and closing parentheses.
-
 -   `--) `: Translates to `=>` in JavaScript.
-
 -   `-) `: Translates to `=` in JavaScript.
-
 -   `carve rune `: Translates to `let ` in JavaScript.
-
 -   `carve saga `: Translates to `const ` in JavaScript.
-
 -   `myrkur`: Translates to `console.log` in JavaScript.
+-   `«` and `»`: Represent a string as a JavaScript backtick.
 
 ## License
 
