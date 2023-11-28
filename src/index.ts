@@ -13,7 +13,6 @@ import { spawn, spawnSync } from 'node:child_process';
 const [, , ...argv] = process.argv;
 const args: CMDArgs = Object.fromEntries([
     // defaults
-    ['output', './build'],
     ['temp', './.temp'],
     ['quiet', false],
     ['debug', false],
