@@ -57,7 +57,7 @@
         ]
     },
     "name": "@iasd/mjolnir",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Compiler / Interpreter / Parser for ValhallaScript",
     "author": "Sebastian Heinz <sebsatian@iamsebastian.dev>",
     "publishConfig": {
@@ -65,6 +65,6 @@
     },
     "private": false,
     "dependencies": {
-        "chalk": "^5.3.0"
+        "chalk": "^4.1.0"
     }
 }
