@@ -60,7 +60,7 @@ Here is a `Hello World` implementation.
 
 ```vh
 carve rune navn -) `Fynn`;
-myrkur<`Hej ` + navn>; // logs `Hej Fynn`
+myrkur<»Hej « + navn>; // logs `Hej Fynn`
 ```
 
 ## Valhalla Script Language
