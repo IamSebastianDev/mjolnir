@@ -59,5 +59,9 @@
     "name": "@iasd/mjolnir",
     "version": "1.0.0",
     "description": "Compiler / Interpreter / Parser for ValhallaScript",
-    "author": "Sebastian Heinz <sebsatian@iamsebastian.dev>"
+    "author": "Sebastian Heinz <sebsatian@iamsebastian.dev>",
+    "publishConfig": {
+        "access": "public"
+    },
+    "private": false
 }
