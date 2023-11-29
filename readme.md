@@ -72,7 +72,8 @@ Valhalla script is a unique esoteric programming language. It includes the follo
 -   `-) `: Translates to `=` in JavaScript.
 -   `carve rune `: Translates to `let ` in JavaScript.
 -   `carve saga `: Translates to `const ` in JavaScript.
--   `myrkur`: Translates to `console.log` in JavaScript.
+-   `inscribe`: Translates to `console.log` in JavaScript.
+-   `runestone`: Translates to `process` in JavaScript.
 -   `«` and `»`: Represent a string as a JavaScript backtick.
 
 ## License
