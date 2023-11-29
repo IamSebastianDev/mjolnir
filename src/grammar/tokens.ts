@@ -15,5 +15,6 @@ export const tokens = new Map<RegExp, (r: string) => string>([
     [new RegExp(/\∫/gim), (r: string) => '.'], // replaces the property access dot
     [new RegExp(/∆[^∆]*∆/gim), (r: string) => r.replace('∆', '[').replace('∆', ']')],
     [new RegExp(/∂[^∂]*∂/gim), (r: string) => r.replace('∂', '{').replace('∂', '}')],
-    [new RegExp(/odin/gim), (r: string) => `true`],
+    [new RegExp(/ansuz/gim), (r: string) => `true`],
+    [new RegExp(/hagalaz/gim), (r: string) => `false`],
 ]);

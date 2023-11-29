@@ -61,7 +61,7 @@ In this example, `index.vh` will be parsed, and the resulting JavaScript code wi
 Here is a `Hello World` implementation.
 
 ```vh
-carve rune navn -) `Fynn`;
+carve rune navn -) `Fynn`; // create the variable 'navn'
 inscribe<»Hej « + navn>; // logs `Hej Fynn`
 ```
 
@@ -78,6 +78,7 @@ ValhallaScript is a unique esoteric programming language. It includes the follow
 -   `∆`: Represents square brackets. Only flat arrays are possible at the moment.
 -   `∫`: Represents the property access `.`
 -   `∂`: Represents curly braces. Nested objects are not possible at the moment.
+-   `ansuz` & `hagalaz`: Represents `true` & `false` respectively.
 
 ## ValhallaScript Standard Library
 
