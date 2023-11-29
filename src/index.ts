@@ -76,7 +76,7 @@ const args: CMDArgs = Object.fromEntries([
   
       Lines of code:          ${loc}
       Size (in b):            ${size}
-      Time (in sec/ms):       ${elapsedInSec}s/ ${elapsedRaw}ms \n`);
+      Time (in sec/ms):       ${elapsedInSec}s/ ${chalk.bgBlue(elapsedRaw + 'ms')} \n`);
 
     console.log(`\n--------OUTPUT--------\n`);
     console.log(result);
