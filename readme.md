@@ -84,12 +84,17 @@ ValhallaScript is a unique esoteric programming language. It includes the follow
 A certain set of functions are imported by default. No other imports are available (as of yet. Probably never.)
 
 -   `skæld`: Transpiles to `console` in JavaScript.
--   `inscribe`: Translates to `console.log` in JavaScript.
--   `runestone`: Translates to `process` in JavaScript.
+-   `inscribe`: Transpiles to `console.log` in JavaScript.
+-   `runestone`: Transpiles to `process` in JavaScript.
+
+## Contributing
+
+If you would like to contribute, take a look at the [Contribution Guide](./contributing.md). Contributors of any skill level are
+appreciated, if you have any questions, feel free to reach out.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+`Mjolnir` is licensed under the [MIT License](https://opensource.org/licenses/MIT)
 
 ## Acknowledgments
 
