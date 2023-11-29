@@ -10,7 +10,7 @@ Mjolnir is a command-line tool for parsing ValhallaScript files (.vh) and conver
 
 ## Prerequisites
 
-Before using the Valhalla Script Parser, ensure you have the following dependencies installed:
+Before using the ValhallaScript Parser (Transpiler?), ensure you have the following dependencies installed:
 
 -   Node.js: You need Node.js installed on your system. You can download it from [nodejs.org](https://nodejs.org/).
 
@@ -24,10 +24,12 @@ $ npm install @iasd/mjolnir
 
 ## Usage
 
-You can use the Valhalla Script Parser from the command line. Here's the basic usage:
+You can use the ValhallaScript Parser (Transpiler?) from the command line. Here's the basic usage:
 
 ```bash
-npm mjolnir --file=./index.vh --output=./build/
+yarn mjolnir --file=./index.vh --output=./build
+# or
+npm mjolnir --file=./index.vh --output=./build
 ```
 
 ### Options
@@ -49,7 +51,7 @@ npm mjolnir --file=./index.vh --output=./build/
 Here's an example of how to use the Valhalla Script Parser:
 
 ```bash
-npm mjolnir --file=index.vh --output=./build
+yarn mjolnir --file=index.vh --output=./build
 ```
 
 In this example, `index.vh` will be parsed, and the resulting JavaScript code will be saved in the `./build` directory. If the `--defer` option is not used, the JavaScript code will also be executed.
@@ -60,21 +62,30 @@ Here is a `Hello World` implementation.
 
 ```vh
 carve rune navn -) `Fynn`;
-myrkur<»Hej « + navn>; // logs `Hej Fynn`
+inscribe<»Hej « + navn>; // logs `Hej Fynn`
 ```
 
-## Valhalla Script Language
+## ValhallaScript Language
 
-Valhalla script is a unique esoteric programming language. It includes the following key features:
+ValhallaScript is a unique esoteric programming language. It includes the following key features:
 
 -   `<` and `>`: Represent opening and closing parentheses.
--   `--) `: Translates to `=>` in JavaScript.
--   `-) `: Translates to `=` in JavaScript.
--   `carve rune `: Translates to `let ` in JavaScript.
--   `carve saga `: Translates to `const ` in JavaScript.
+-   `--)`: Translates to `=>` in JavaScript.
+-   `-)`: Translates to `=` in JavaScript.
+-   `carve rune`: Translates to `let` in JavaScript.
+-   `carve saga`: Translates to `const` in JavaScript.
+-   `«` and `»`: Represent a string as a JavaScript backtick.
+-   `∆`: Represents square brackets. Only flat arrays are possible at the moment.
+-   `∫`: Represents the property access `.`
+-   `∂`: Represents curly braces. Nested objects are not possible at the moment.
+
+## ValhallaScript Standard Library
+
+A certain set of functions are imported by default. No other imports are available (as of yet. Probably never.)
+
+-   `skæld`: Transpiles to `console` in JavaScript.
 -   `inscribe`: Translates to `console.log` in JavaScript.
 -   `runestone`: Translates to `process` in JavaScript.
--   `«` and `»`: Represent a string as a JavaScript backtick.
 
 ## License
 

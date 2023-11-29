@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** @format */
 
-import { log, parser, writeOutput, processResult, getMetaData, performance } from './lib';
+import { log, parser, writeOutput, processResult, getMetaData, performance, injectStandardLibrary } from './lib';
 import { CMDArgs } from './types';
 import { readFile } from 'node:fs/promises';
 import { root } from './utils/root.util';
@@ -48,12 +48,13 @@ const args: CMDArgs = Object.fromEntries([
 
     if (script) debug(script);
     const parsed = parser(script);
+    const compiled = injectStandardLibrary(parsed);
     const { defer, output, temp } = args;
     // If defer is true and output is false, no action should be taken
     if (defer && !output) return;
     // If output is true, the file should be created and placed in the output specified
     try {
-        await writeOutput(file, parsed, output);
+        await writeOutput(file, compiled, output);
     } catch (e) {
         error(`Could not write output: ${e}`);
     }
@@ -64,13 +65,13 @@ const args: CMDArgs = Object.fromEntries([
 
     ${chalk.bgGreenBright.underline('Statistics:                     ')}
 
-    LOC:                    ${loc}
+    Lines of code:          ${loc}
     Size (in b):            ${size}
     Time (in sec/ms):       ${elapsedInSec}s/ ${elapsedRaw}ms`);
 
     // if defer is false and temp is provided, a temp file is created and executed, and then deleted
     try {
-        const result = await processResult(temp, parsed, defer);
+        const result = await processResult(temp, compiled, defer);
         console.log(result);
     } catch (e) {
         error(`Could not process result: ${e}`);
