@@ -17,4 +17,6 @@ export const tokens = new Map<RegExp, (r: string) => string>([
     [new RegExp(/∂[^∂]*∂/gim), (r: string) => r.replace('∂', '{').replace('∂', '}')],
     [new RegExp(/ansuz/gim), (r: string) => `true`],
     [new RegExp(/hagalaz/gim), (r: string) => `false`],
+    [new RegExp(/!∑/gim), (r: string) => `else`],
+    [new RegExp(/∑/gim), (r: string) => `if`],
 ]);

@@ -79,6 +79,7 @@ ValhallaScript is a unique esoteric programming language. It includes the follow
 -   `∫`: Represents the property access `.`
 -   `∂`: Represents curly braces. Nested objects are not possible at the moment.
 -   `ansuz` & `hagalaz`: Represents `true` & `false` respectively.
+-   `∑` & `!∑`: Represents `if` & `else`.
 
 ## ValhallaScript Standard Library
 
