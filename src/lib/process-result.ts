@@ -13,7 +13,6 @@ export const processResult = async (temp: string, parsed: string, defer: boolean
     await writeFile(handle, parsed, 'utf-8');
 
     const { stderr, stdout } = spawnSync('node', [handle], { encoding: 'utf-8' });
-    console.log(`\n--------------------\n`);
     await rm(root(temp), { recursive: true, force: true });
     if (stderr) throw new Error(stderr);
     return stdout;
