@@ -5,6 +5,7 @@ import { log, parser, writeOutput, processResult, getMetaData, performance } fro
 import { CMDArgs } from './types';
 import { readFile } from 'node:fs/promises';
 import { root } from './utils/root.util';
+import chalk from 'chalk';
 
 // Get and parse the command line parameters
 const [, , ...argv] = process.argv;
@@ -59,15 +60,13 @@ const args: CMDArgs = Object.fromEntries([
 
     // Write Compile Meta Data
     const { loc, elapsedInSec, elapsedRaw, size } = await getMetaData(file, perf);
-    info(`
-[SUCCESS!]::
+    info(`Success! Compiled in ${elapsedInSec}s. 🚀
 
-    Statistics:
+    ${chalk.bgGreenBright.underline('Statistics:                     ')}
 
     LOC:                    ${loc}
     Size (in b):            ${size}
-    Time (in sec):          ${elapsedInSec}
-    Time (in ms):           ${elapsedRaw}`);
+    Time (in sec/ms):       ${elapsedInSec}s/ ${elapsedRaw}ms`);
 
     // if defer is false and temp is provided, a temp file is created and executed, and then deleted
     try {
