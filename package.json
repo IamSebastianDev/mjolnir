@@ -16,6 +16,7 @@
         "@commitlint/cli": "^18.4.3",
         "@commitlint/config-conventional": "^18.4.3",
         "@rollup/plugin-commonjs": "^24.0.1",
+        "@rollup/plugin-json": "^6.0.1",
         "@rollup/plugin-node-resolve": "^15.0.1",
         "@types/node": "^20.2.3",
         "alex": "^11.0.0",

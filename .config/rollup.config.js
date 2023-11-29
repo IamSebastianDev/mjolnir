@@ -7,6 +7,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import resolve from '@rollup/plugin-node-resolve';
 import pkg from '../package.json' assert { type: 'json' };
 import shebang from 'rollup-plugin-add-shebang';
+import json from '@rollup/plugin-json';
 
 const bundle = (config) => ({
     input: './src/index.ts',
@@ -16,7 +17,14 @@ const bundle = (config) => ({
 
 export default [
     bundle({
-        plugins: [commonjs(), resolve(), esbuild(), cleanup({ extensions: ['ts'] }), shebang({ include: `**/*.cjs` })],
+        plugins: [
+            commonjs(),
+            resolve(),
+            esbuild(),
+            json(),
+            cleanup({ extensions: ['ts'] }),
+            shebang({ include: `**/*.cjs` }),
+        ],
         output: [
             {
                 file: pkg.main,
