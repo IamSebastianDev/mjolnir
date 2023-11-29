@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /** @format */
 
-import { log, parser, writeOutput, processResult, getMetaData } from './lib';
+import { log, parser, writeOutput, processResult, getMetaData, performance } from './lib';
 import { CMDArgs } from './types';
 import { readFile } from 'node:fs/promises';
 import { root } from './utils/root.util';
@@ -23,6 +23,7 @@ const args: CMDArgs = Object.fromEntries([
 ]);
 
 (async (args: CMDArgs) => {
+    const perf = performance();
     const { file, debug: enableDebug, quiet } = args;
     const { info, debug, error } = log(quiet, enableDebug);
     if (!file || typeof file !== 'string') {
@@ -64,6 +65,13 @@ const args: CMDArgs = Object.fromEntries([
     }
 
     // Write Compile Meta Data
-    const metaData = await getMetaData(file);
-    info('Compiler meta-data: ', { metaData });
+    const { loc, elapsedInSec, elapsedRaw, size } = await getMetaData(file, perf);
+    info(`
+«-------------------------------------------»
+    Compile Meta Data:
+    LOC:            ${loc}
+    Size (in b):    ${size}
+    Time (in sec):  ${elapsedInSec}
+    Time (in ms):   ${elapsedRaw}
+    `);
 })(args);
