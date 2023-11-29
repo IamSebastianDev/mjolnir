@@ -56,6 +56,19 @@ const args: CMDArgs = Object.fromEntries([
     } catch (e) {
         error(`Could not write output: ${e}`);
     }
+
+    // Write Compile Meta Data
+    const { loc, elapsedInSec, elapsedRaw, size } = await getMetaData(file, perf);
+    info(`
+[SUCCESS!]::
+
+    Statistics:
+
+    LOC:                    ${loc}
+    Size (in b):            ${size}
+    Time (in sec):          ${elapsedInSec}
+    Time (in ms):           ${elapsedRaw}`);
+
     // if defer is false and temp is provided, a temp file is created and executed, and then deleted
     try {
         const result = await processResult(temp, parsed, defer);
@@ -63,15 +76,4 @@ const args: CMDArgs = Object.fromEntries([
     } catch (e) {
         error(`Could not process result: ${e}`);
     }
-
-    // Write Compile Meta Data
-    const { loc, elapsedInSec, elapsedRaw, size } = await getMetaData(file, perf);
-    info(`
-«-------------------------------------------»
-    Compile Meta Data:
-    LOC:            ${loc}
-    Size (in b):    ${size}
-    Time (in sec):  ${elapsedInSec}
-    Time (in ms):   ${elapsedRaw}
-    `);
 })(args);
