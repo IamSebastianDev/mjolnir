@@ -15,6 +15,7 @@ const args: CMDArgs = Object.fromEntries([
     ['quiet', false],
     ['debug', false],
     ['defer', false],
+    ['pragma', false],
     // user provided input
     ...argv.map((arg) => {
         const [key, value] = arg.split('=');
@@ -25,7 +26,7 @@ const args: CMDArgs = Object.fromEntries([
 
 (async (args: CMDArgs) => {
     const perf = performance();
-    const { file, debug: enableDebug, quiet } = args;
+    const { file, debug: enableDebug, quiet, pragma } = args;
     const { info, debug, error } = log(quiet, enableDebug);
     if (!file || typeof file !== 'string') {
         error(`No input to compile found.`);
@@ -48,7 +49,7 @@ const args: CMDArgs = Object.fromEntries([
 
     if (script) debug(script);
     const parsed = parser(script);
-    const compiled = injectStandardLibrary(parsed);
+    const compiled = injectStandardLibrary(parsed, pragma);
     const { defer, output, temp } = args;
     // If defer is true and output is false, no action should be taken
     if (defer && !output) return;

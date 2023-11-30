@@ -7,4 +7,5 @@ export type CMDArgs = {
     debug: boolean;
     file: string;
     defer: boolean;
+    pragma: boolean;
 };

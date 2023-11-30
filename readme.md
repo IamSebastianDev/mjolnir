@@ -46,6 +46,8 @@ npm mjolnir --file=./index.vh --output=./build
 
 -   `--defer`: Defer execution of the generated JavaScript code. The JavaScript file will be created, but it won't be executed.
 
+-   `--pragma`: Add a pragma to the output
+
 ### Example
 
 Here's an example of how to use the Valhalla Script Parser:
