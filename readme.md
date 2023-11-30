@@ -62,7 +62,7 @@ Here is a `Hello World` implementation.
 
 ```vh
 carve rune navn -) `Fynn`; // create the variable 'navn'
-inscribe<»Hej « + navn>; // logs `Hej Fynn`
+skæld∫inscribe<»Hej « + navn>; // logs `Hej Fynn`
 ```
 
 ## ValhallaScript Language
@@ -70,7 +70,7 @@ inscribe<»Hej « + navn>; // logs `Hej Fynn`
 ValhallaScript is a unique esoteric programming language. It includes the following key features:
 
 -   `<` and `>`: Represent opening and closing parentheses.
--   `--)`: Translates to `=>` in JavaScript.
+-   `(*)`: Translates to `=>` in JavaScript.
 -   `|`: Translates to `=` in JavaScript.
 -   `carve rune`: Translates to `let` in JavaScript.
 -   `carve saga`: Translates to `const` in JavaScript.
@@ -81,12 +81,16 @@ ValhallaScript is a unique esoteric programming language. It includes the follow
 -   `ansuz` & `hagalaz`: Represents `true` & `false` respectively.
 -   `∑` & `!∑`: Represents `if` & `else`.
 
+## Escaping
+
+Preceding any of the provided tokens / keywords with an `ø` will escape the character and stop the transpilation.
+
 ## ValhallaScript Standard Library
 
 A certain set of functions are imported by default. No other imports are available (as of yet. Probably never.)
 
 -   `skæld`: Transpiles to `console` in JavaScript.
--   `inscribe`: Transpiles to `console.log` in JavaScript.
+-   `inscribe`: Transpiles to `log` in JavaScript.
 -   `runestone`: Transpiles to `process` in JavaScript.
 
 ## Contributing
