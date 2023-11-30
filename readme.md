@@ -61,7 +61,7 @@ In this example, `index.vh` will be parsed, and the resulting JavaScript code wi
 Here is a `Hello World` implementation.
 
 ```vh
-carve rune navn -) `Fynn`; // create the variable 'navn'
+carve rune navn | `Fynn`; // create the variable 'navn'
 skæld∫inscribe<»Hej « + navn>; // logs `Hej Fynn`
 ```
 
