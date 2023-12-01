@@ -63,7 +63,7 @@ In this example, `index.vh` will be parsed, and the resulting JavaScript code wi
 Here is a `Hello World` implementation.
 
 ```vh
-carve rune navn | `Fynn`; // create the variable 'navn'
+carve rune navn † `Fynn`; // create the variable 'navn'
 skæld∫inscribe<»Hej « + navn>; // logs `Hej Fynn`
 ```
 
@@ -73,7 +73,7 @@ ValhallaScript is a unique esoteric programming language. It includes the follow
 
 -   `<` and `>`: Represent opening and closing parentheses.
 -   `(*)`: Translates to `=>` in JavaScript.
--   `|`: Translates to `=` in JavaScript.
+-   `†`: Translates to `=` in JavaScript.
 -   `carve rune`: Translates to `let` in JavaScript.
 -   `carve saga`: Translates to `const` in JavaScript.
 -   `«` and `»`: Represent a string as a JavaScript backtick.
