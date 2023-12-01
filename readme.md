@@ -77,11 +77,12 @@ ValhallaScript is a unique esoteric programming language. It includes the follow
 -   `carve rune`: Translates to `let` in JavaScript.
 -   `carve saga`: Translates to `const` in JavaScript.
 -   `«` and `»`: Represent a string as a JavaScript backtick.
--   `∆`: Represents square brackets. Only flat arrays are possible at the moment.
+-   `∆∞` & `∞∆`: Represents square brackets.
 -   `∫`: Represents the property access `.`
--   `∂`: Represents curly braces. Nested objects are not possible at the moment.
+-   `<∂` & `∂>`: Represents curly braces.
 -   `ansuz` & `hagalaz`: Represents `true` & `false` respectively.
 -   `∑` & `!∑`: Represents `if` & `else`.
+-   `mimir` & `from`: Represents `for...of` to start a for...of loop
 
 ## Escaping
 
@@ -93,7 +94,7 @@ A certain set of functions are imported by default. No other imports are availab
 
 -   `skæld`: Transpiles to `console` in JavaScript.
 -   `inscribe`: Transpiles to `log` in JavaScript.
--   `runestone`: Transpiles to `process` in JavaScript.
+-   `runestone`: Transpiles to `Object.entries` in JavaScript.
 
 ## Contributing
 
