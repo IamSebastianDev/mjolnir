@@ -59,7 +59,7 @@
         ]
     },
     "name": "@iasd/mjolnir",
-    "version": "1.0.12",
+    "version": "1.0.13",
     "description": "Compiler / Interpreter / Parser for ValhallaScript",
     "author": "Sebastian Heinz <sebsatian@iamsebastian.dev>",
     "publishConfig": {
