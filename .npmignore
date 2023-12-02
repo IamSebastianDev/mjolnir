@@ -10,3 +10,4 @@ src
 commitlint.config.json
 tsconfig.json
 tests
+build
