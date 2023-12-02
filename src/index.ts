@@ -60,15 +60,6 @@ const args: CMDArgs = Object.fromEntries([
         error(`Could not write output: ${e}`);
     }
 
-    // if defer is false and temp is provided, a temp file is created and executed, and then deleted
-    let result;
-    try {
-        result = await processResult(temp, compiled, defer);
-    } catch (e) {
-        error(`Could not process result. The parsing completed, but there is an error inside the transpiled file. 
-        Original error: ${e}`);
-    }
-
     // Write Compile Meta Data
     const { loc, elapsedInSec, elapsedRaw, size } = await getMetaData(file, perf);
     info(`Success! Compiled in ${elapsedInSec}s. 🚀
@@ -79,7 +70,11 @@ const args: CMDArgs = Object.fromEntries([
       Size (in b):            ${size}
       Time (in sec/ms):       ${elapsedInSec}s/ ${chalk.bgBlue(elapsedRaw + 'ms')} \n`);
 
-    console.log(`\n--------OUTPUT--------\n`);
-    console.log(result);
-    console.log(`\n----------------------\n`);
+    // if defer is false and temp is provided, a temp file is created and executed, and then deleted
+    try {
+        await processResult(temp, compiled, defer);
+    } catch (e) {
+        error(`Could not process result. The parsing completed, but there is an error inside the transpiled file. 
+        Original error: ${e}`);
+    }
 })(args);
