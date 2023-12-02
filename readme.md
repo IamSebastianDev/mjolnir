@@ -106,13 +106,13 @@ A certain set of functions are imported by default. No other imports are availab
 
 ### File Api
 
-A certain set of fns are provided to handle files
+A certain set of fns are provided to handle files.
 
-#### eddaEtch
+#### `eddaEtch`
 
 Type: `(handle: string, content: string) => Promise<void>``
 
-Description:
+Description:  
 `eddaEtch` is an asynchronous function that creates a file at the specified location with the specified content. It accepts two parameters:
 
 handle (type: `string`): The file path where you want to create the file.  
@@ -127,11 +127,11 @@ scry eddaEtch<»./file.txt«, »File Content«>
 Returns:  
 A promise that resolves when the file has been successfully created with the provided content. If any errors occur during the process, it will reject with an error message.
 
-#### eddaSeek
+#### `eddaSeek`
 
 Type: (handle: `string`) => Promise<string>
 
-Description:
+Description:  
 `eddaSeek` is an asynchronous function that reads and retrieves the content of a file located at the specified path. It accepts one parameter:
 
 handle (type: `string`): The file path from which you want to read the content.
@@ -144,7 +144,7 @@ scry eddaSeek<»./file.txt«>
 Returns:  
 A promise that resolves with the content of the file as a string if the file exists and can be read. If the file does not exist or an error occurs during the process, it will reject with an error message.
 
-#### eddaWeave
+#### `eddaWeave`
 
 Type: `(handle: string, content: string) => Promise<void>``
 
@@ -163,7 +163,7 @@ scry eddaWeave<»./file.txt«, »Additional Content«>
 Returns:  
 A promise that resolves when the content has been successfully appended to the file. If any errors occur during the process, it will reject with an error message.
 
-#### eddaExile
+#### `eddaExile`
 
 Type: `(handle: string) => Promise<void>``
 
@@ -179,6 +179,23 @@ scry eddaExile<»./file.txt«>
 
 Returns:  
 A promise that resolves when the file or directory has been successfully deleted. If any errors occur during the deletion process, it will reject with an error message.
+
+### Path Api
+
+Set of functions to interact with paths
+
+#### `root`
+
+Type: `(...fragments: string[]) => Promise<string>``
+
+Description: function to create a absolute path from the root of the process.
+
+Usage:
+
+```vh
+root<»./folder«, »file.txt«>
+// results in ./path/to/process/folder/file.txt
+```
 
 ## Contributing
 
