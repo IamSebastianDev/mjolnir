@@ -2,7 +2,7 @@
 
 export const tokens = new Map<RegExp, (r: string) => string>([
     [new RegExp(/(?<!ø)\<(?!∂)/gim), (r: string) => '('],
-    [new RegExp(/(?<![∂ø])\>/gim), (r: string) => ')'],
+    [new RegExp(/(?<![∂ø=])\>/gim), (r: string) => ')'],
     [new RegExp(/(?<!ø)\(\*\)/gim), (r: string) => '=>'],
     [new RegExp(/(?<!ø)†/gim), (r: string) => ' = '],
     [new RegExp(/(?<!ø)\|{3}/gim), (r: string) => '==='],
