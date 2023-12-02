@@ -1,7 +1,16 @@
 #!/usr/bin/env node
 /** @format */
 
-import { log, parser, writeOutput, processResult, getMetaData, performance, injectStandardLibrary } from './lib';
+import {
+    log,
+    parser,
+    writeOutput,
+    processResult,
+    getMetaData,
+    performance,
+    injectStandardLibrary,
+    injectPragma,
+} from './lib';
 import { CMDArgs } from './types';
 import { readFile } from 'node:fs/promises';
 import { root } from './utils/root.util';
@@ -48,8 +57,11 @@ const args: CMDArgs = Object.fromEntries([
     }
 
     if (script) debug(script);
-    const parsed = parser(script);
-    const compiled = injectStandardLibrary(parsed, pragma);
+    const _pragma = injectPragma();
+    const _library = injectStandardLibrary();
+    const _parsed = parser(script);
+
+    const compiled = `${pragma ? _pragma + '\n' : ''}${_library}\n\n${_parsed}`;
     const { defer, output, temp } = args;
     // If defer is true and output is false, no action should be taken
     if (defer && !output) return;

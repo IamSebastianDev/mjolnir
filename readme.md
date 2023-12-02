@@ -94,7 +94,91 @@ A certain set of functions are imported by default. No other imports are availab
 
 -   `skæld`: Transpiles to `console` in JavaScript.
 -   `inscribe`: Transpiles to `log` in JavaScript.
--   `runestone`: Transpiles to `Object.entries` in JavaScript.
+-   `runestone`: Transpiles to `Object` in JavaScript.
+    -   `runestone∫futhark`: Transpiles to `Object.fromEntries`
+    -   `runestone∫glyphs`: Transpiles to `Object.entries`
+    -   `runestone∫sigils`: Transpiles to `Object.keys`
+    -   `runestone∫essence`: Transpiles to `Object.values`
+-   `freyasOath`: Transpiles to `new Promise` in JavaScript
+-   `scry` & `woven`: Transpiles to `async` & `await`
+-   `destine`: Transpiles to `return`
+-   `choose`, `path` & `rest`: Transpiles to `switch`, `case` and `break`
+
+### File Api
+
+A certain set of fns are provided to handle files
+
+#### eddaEtch
+
+Type: `(handle: string, content: string) => Promise<void>``
+
+Description:
+`eddaEtch` is an asynchronous function that creates a file at the specified location with the specified content. It accepts two parameters:
+
+handle (type: `string`): The file path where you want to create the file.  
+content (type: `string`): The content you want to write to the file.
+
+Usage:
+
+```vh
+scry eddaEtch<»./file.txt«, »File Content«>
+```
+
+Returns:  
+A promise that resolves when the file has been successfully created with the provided content. If any errors occur during the process, it will reject with an error message.
+
+#### eddaSeek
+
+Type: (handle: `string`) => Promise<string>
+
+Description:
+`eddaSeek` is an asynchronous function that reads and retrieves the content of a file located at the specified path. It accepts one parameter:
+
+handle (type: `string`): The file path from which you want to read the content.
+Usage:
+
+```vh
+scry eddaSeek<»./file.txt«>
+```
+
+Returns:  
+A promise that resolves with the content of the file as a string if the file exists and can be read. If the file does not exist or an error occurs during the process, it will reject with an error message.
+
+#### eddaWeave
+
+Type: `(handle: string, content: string) => Promise<void>``
+
+Description:  
+eddaWeave is an asynchronous function that appends the specified content to a file located at the specified path. It accepts two parameters:
+
+handle (type: `string`): The file path to which you want to append the content.  
+content (type: `string`): The content you want to append to the file.
+
+Usage:
+
+```vh
+scry eddaWeave<»./file.txt«, »Additional Content«>
+```
+
+Returns:  
+A promise that resolves when the content has been successfully appended to the file. If any errors occur during the process, it will reject with an error message.
+
+#### eddaExile
+
+Type: `(handle: string) => Promise<void>``
+
+Description:  
+eddaExile is an asynchronous function that deletes a file or directory located at the specified path. It accepts one parameter:
+
+handle (type: `string`): The file or directory path you want to delete.
+Usage:
+
+```vh
+scry eddaExile<»./file.txt«>
+```
+
+Returns:  
+A promise that resolves when the file or directory has been successfully deleted. If any errors occur during the deletion process, it will reject with an error message.
 
 ## Contributing
 
