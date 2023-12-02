@@ -11,4 +11,5 @@ export const funcs = {
     eddaEtch: `async (handle, content) => await writeFile(handle, content, 'utf-8')`,
     eddaWeave: `async (handle, content) => await appendFile(handle, content, 'utf-8')`,
     eddaExile: `async (handle, content) => await rm(handle, { recursive: true, force: true })`,
+    root: `(...fragments) => resolve(join(process.cwd(), ...fragments))`,
 };
