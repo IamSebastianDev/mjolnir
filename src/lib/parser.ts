@@ -13,5 +13,5 @@ export const parser = (script: string): string => {
         });
     });
 
-    return script.replace('ø', ''); // remove the escape character
+    return script.replace(/ø/gim, ''); // remove the escape character
 };
