@@ -2,7 +2,7 @@
 
 import { funcs, imports } from '../grammar/std';
 
-export const injectStandardLibrary = () => {
+export const injectStandardLibrary = (script: string) => {
     return [
         `/** Imports */`,
         Object.entries(imports)
@@ -10,6 +10,7 @@ export const injectStandardLibrary = () => {
             .join('\n'),
         `/** Methods */`,
         Object.entries(funcs)
+            .filter(([key]) => script.includes(key)) // Remove all methods that are not used
             .map(([key, def]) => `const ${key} = ${def}`)
             .join('\n'),
         `/** Script */`,

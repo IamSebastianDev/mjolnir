@@ -57,9 +57,9 @@ const args: CMDArgs = Object.fromEntries([
     }
 
     if (script) debug(script);
-    const _pragma = injectPragma();
-    const _library = injectStandardLibrary();
     const _parsed = parser(script);
+    const _pragma = injectPragma();
+    const _library = injectStandardLibrary(_parsed);
 
     const compiled = `${pragma ? _pragma + '\n' : ''}${_library}\n\n${_parsed}`;
     const { defer, output, temp } = args;
