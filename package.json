@@ -20,7 +20,7 @@
         "@rollup/plugin-node-resolve": "^15.0.1",
         "@types/node": "^20.2.3",
         "alex": "^11.0.0",
-        "ava": "^5.2.0",
+        "ava": "^6.0.1",
         "c8": "^8.0.1",
         "esbuild": "^0.19.8",
         "husky": "^8.0.2",
